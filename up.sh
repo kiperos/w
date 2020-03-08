@@ -51,6 +51,8 @@ echo ""
 echo -e "${GREEN} please save your domains {NC}"
 
 echo ""
-
-
+echo ""
+echo ""
+echo "#####################################################"
 cat $filepath
+echo "#####################################################"
