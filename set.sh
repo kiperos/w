@@ -7,4 +7,5 @@ cd /usr/local/bin && wget -O up https://raw.githubusercontent.com/kiperos/w/mast
 echo "put list of domains in format: 
 
 prokladka donor
-prokladka2 donor2"
+prokladka2 donor2
+prokladka3 donor3"
