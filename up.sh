@@ -48,7 +48,7 @@ echo -e "${GREEN} $prokladka successfully clonned from $donor {NC}"
 
 done < $1
 echo ""
-echo -e "${GREEN} please save your domains {NC}"
+echo -e "${GREEN} Please save your domains! {NC}"
 
 echo ""
 echo ""
