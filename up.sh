@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# ${GREEN} commands  {NC}
+GREEN='\033[0;32m'      # ${GREEN}
+RED='\033[0;31m'
+NC='\033[0m' # No Color # {NC}
+
+filepath=$(readlink -f $1)
+
 while IFS=" " read prokladka donor; do
 
 DESC="Create prokladka $prokladka"
@@ -37,12 +44,13 @@ mv -fi * ../
 cd ..
 mv index.html index.php
 
-echo "$prokladka successfully clonned from $donor"
+echo -e "${GREEN} $prokladka successfully clonned from $donor {NC}"
 
 done < $1
 echo ""
-echo "please save your domains"
+echo -e "${GREEN} please save your domains {NC}"
 
 echo ""
 
-cat $1
+
+cat $filepath
