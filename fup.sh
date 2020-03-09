@@ -1,32 +1,28 @@
-#!/bin/bash
+#!/bin/sh
 
-# ${GREEN} commands  {NC}
-GREEN='\033[0;32m'      # ${GREEN}
-RED='\033[0;31m'
-NC='\033[0m' # No Color # {NC}
+DOMAIN=$1
 
-filepath=$(readlink -f $1)
-
-while IFS=" " read prokladka donor; do
-
-DESC="Create prokladka $prokladka"
-file_location="/etc/apache2/sites-available/$prokladka.conf"
-file_slocation="/etc/apache2/sites-enabled/$prokladka.conf"
+DESC="Create Domain $DOMAIN"
+file_location="/etc/apache2/sites-available/$DOMAIN.conf"
+file_slocation="/etc/apache2/sites-enabled/$DOMAIN.conf"
 
 echo "$DESC"
 
 cat > $file_location <<EOF
 <VirtualHost *:80>
-        ServerName $prokladka
- ServerAlias www.$prokladka
+        ServerName $DOMAIN
+ ServerAlias www.$DOMAIN
+
         ServerAdmin webmaster@localhost
-        DocumentRoot /var/www/html/$prokladka
+        DocumentRoot /var/www/html/$DOMAIN
+
         ErrorLog ${APACHE_LOG_DIR}/error.log
         CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
+
 # vim: syntax=apache ts=4 sw=4 sts=4 sr noet
 EOF
 
 ln -sf $file_location $file_slocation
-mkdir /var/www/html/$prokladka
+mkdir /var/www/html/$DOMAIN
 /etc/init.d/apache2 restart
