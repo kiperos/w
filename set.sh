@@ -1,5 +1,7 @@
 #!/bin/bash
 
+archivepassword=$(cat /root/pass)
+
 spinner ()
 {
     bar=" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
@@ -61,6 +63,7 @@ clear
 f_banner
 
 ARCHIVEPASS=/root/pass
+
 if [ -f $ARCHIVEPASS ]; then
   
   echo -e "\e[34m---------------------------------------------------------------------------------------------------------\e[00m"
