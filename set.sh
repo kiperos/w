@@ -106,5 +106,6 @@ say_done_2
 
 
 extract_main
+sed -i -e 's/\r$//' /usr/local/bin/up
 tmux new-session -d -s 1
 tmux attach
