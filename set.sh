@@ -91,6 +91,7 @@ if [ -f $ARCHIVEPASS ]; then
   echo -n " Please Enter Your Password: "; read -s archivepassword2
   7z x main.7z -p$archivepassword; echo "Extract archive OK"
   mv /root/main/up.sh /usr/local/bin/up
+  sed -i -e 's/\r$//' /usr/local/bin/up
   chmod +x /usr/local/bin/up
   
   rm -f main.7z; echo "remove archive OK"
